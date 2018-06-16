@@ -1,0 +1,45 @@
+.admin {
+  padding: 30px;
+}
+
+.users-list {
+  @include flex-container-direction(column);
+  justify-content: center;
+  align-content: center;
+}
+
+.users-list table {
+  @include flex-item-dynamic(1, 0);
+  align-self: center;
+}
+
+.users-list button {
+  margin: 0px;
+}
+
+.users-list th {
+  font-size: 1.5em;
+  background: $color-dark-grey--darken-5;
+  color: $color-light-grey--lighten-20;
+  padding: 10px;
+}
+
+.users-list td {
+  padding: 10px;
+}
+
+.users-list thead button {
+  width: 50px;
+}
+
+.text-align-left {
+  text-align: left;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+.page-button {
+  width: 50px;
+}

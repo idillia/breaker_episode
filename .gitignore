@@ -1,0 +1,12 @@
+node_modules
+.DS_Store
+public/app.js
+public/vendors.js
+public/mystyles.js
+public/mystyles.css
+yarn-error.log
+build
+
+
+
+

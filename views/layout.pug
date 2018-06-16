@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href="/mystyles.css")
+    style(type="text/css").
+      #app { display: none }
+
+  body
+    block content
+    script(type='application/javascript', src='/app.js') 
+    script(type='application/javascript', src='/vendors.js') 
+    script(type='application/javascript', src='/mystyles.js') 
+    script(type='application/javascript', src='/scripts/jquery/dist/jquery.min.js') 
+    script(type='application/javascript', src='/scripts/bootstrap/dist/js/bootstrap.min.js') 
+    script(type='application/javascript', src='/myscripts/closeMenu.js') 
+    link(rel='stylesheet', href="/styles/unhide.css")
+ 
+

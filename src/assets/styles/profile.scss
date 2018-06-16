@@ -1,0 +1,18 @@
+.profile-details {
+  @include flex-item-dynamic(1, 0);
+  width: 40%;
+}
+
+.area-container_banner h2 {
+  @include flex-item-dynamic(1, 0);
+  align-self: flex-start;
+  margin: 10px;
+}
+
+.area-container_banner i {
+  @include flex-item-dynamic(1, 0);
+  align-self: flex-end;
+  color: white;
+  text-align: right;
+}
+
