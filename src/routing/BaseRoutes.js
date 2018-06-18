@@ -3,14 +3,14 @@ import { Route, Switch, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import EpisodeContainer from '../components/episode/episodeContainer';
-import HomePage from '../components/HomePage';
+import AboutPage from '../components/AboutPage';
 import NotFoundPage from '../components/NotFoundPage';
 
 function BaseRoutes({ location }) {
   return (
     <Switch>
-      <Route exact path='/' component={HomePage} location={location} />
-      <Route exact path='/episode' component={EpisodeContainer} location={location} />
+      <Route exact path='/' component={EpisodeContainer} location={location} />
+      <Route exact path='/about' component={AboutPage} location={location} />
       <Route path='/*' component={NotFoundPage} location={location} />
     </Switch>
   );

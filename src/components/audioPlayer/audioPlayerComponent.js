@@ -1,28 +1,21 @@
 'use strict';
 
 import React               from 'react';
-import ReactAudioPlayer from 'react-audio-player';
+import AWSSoundPlayer from './AWSoundPlayer';
 
+let temp = 'https://s3-us-west-1.amazonaws.com/hr-mytunes/data/04+One+In+A+Million.mp3' //episode.enclosure_url
 
 const audioPlayerComponent = ({episode}) => {
-  console.log("e", episode.enclosure_url)
   return (
-    <div className='episode-details centered'>
-      <div className='area-container_banner'>
-        <h2>Listen</h2>
+    <div className=''>
+      <div className=''>
       </div>
-      <div className='area-container_body'>
-      <ReactAudioPlayer
-        src='http://feeds.soundcloud.com/stream/368129684-shouldwe-no-41-change-everything.mp3'
-        autoPlay
-        controls
-        crossOrigin="anonymous"
-      />
+      <div className=''>
+        <AWSSoundPlayer
+          streamUrl={episode.enclosure_url} />
       </div>
     </div>
   );
 };
 
 export default audioPlayerComponent;
-
-     

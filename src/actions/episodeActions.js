@@ -2,6 +2,9 @@
 
 import * as types from './actionTypes';
 import episodeApi from '../api-services/episodeApi';
+import mockApi from '../api-services/mockApi';
+
+// console.log(mockApi.getMockEpisode())
 
 
 function episodeDataRequested(){
@@ -12,7 +15,6 @@ function episodeDataRequested(){
 }
 
 function episodeDataReceived(episode){
-  console.log("d", episode)
   return {
     type: types.EPISODE_RECEIVED,
     isRequested: false,
@@ -61,12 +63,12 @@ export function fetchOneEpisode() {
     dispatch(episodeDataRequested());
     try {
       const episode = await episodeApi.getOneEpisode();
-      console.log("ep", episode)
-      debugger
+      console.log('got an episode');
+      // console.log('about to get mock episode');
+      // const episode = await mockApi.getMockEpisode();
+      // console.log("ep", episode)
       dispatch(episodeDataReceived(episode));
     } catch (error) {
-      console.log("er", error)
-      debugger
       dispatch(episodeRequestFailure(error));
     }
   };
@@ -74,14 +76,18 @@ export function fetchOneEpisode() {
 
 
 export function updateEpisode(episode) {
-  return (dispatch) => {
+  return async (dispatch) => {
     dispatch(episodeUpdateRequested());
-    return episodeApi.updateEpisode(episode)
+    return episodeApi.updateOneEpisode(episode)
       .then((episode) => {
+        console.log('successfull update');
         dispatch(episodeUpdateSuccessful());
         dispatch(episodeUpdate(episode));
       })
-      .catch((error) => dispatch(episodeUpdateFailure(error)));
+      .catch((error) => {
+        console.log('error while updating', error);
+        dispatch(episodeUpdateFailure(error));
+      });
   };
 }
 

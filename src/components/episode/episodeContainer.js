@@ -7,6 +7,7 @@ import AudioPlayer             from '../audioPlayer/audioPlayerComponent';
 import EditEpisodeForm                  from './editEpisodeComponent';
 import {connect}                        from 'react-redux';
 import * as episodeActions                 from '../../actions/episodeActions';
+import moment from 'moment';
 
 class EpisodeContainer extends Component {
   constructor(props) {
@@ -27,33 +28,38 @@ class EpisodeContainer extends Component {
   }
 
   static fetchData(store) {
-    console.log('fetchData is called')
     return store.dispatch(episodeActions.fetchOneEpisode());
   }
 
-  // componentDidMount() {
-  //   console.log(this.props);
-  //   debugger;
-  //   this.props.episodeActions.fetchOneEpisode();
-  // }
-
-
   render() {
     const {episode, editEpisode} = this.props;
+    let dateFormated = moment(episode.published_at).format('MMMM Do YYYY, h:mm:ss a'); 
     // console.log(this.props);
     return (
-      <div className='area-container flex-column'>
-        {!editEpisode && <Episode episode={episode} onEditEpisode={this.onEditEpisode}/>}
-        {editEpisode && <EditEpisodeForm onSubmit={this.onSubmit}/>}
-        <AudioPlayer episode={episode}/>
+      <div className='container'>
+        <div className="row">
+          <div className="col col-lg-12">
+            <div className="card">
+              <img className="card-img-top" src={episode.image_url} alt={episode.title} />
+              <div className="card-body">
+                <AudioPlayer episode={episode}/>
+              </div>
+              <div className="card-body">
+                {!editEpisode && <Episode episode={episode} onEditEpisode={this.onEditEpisode}/>}
+                {editEpisode && <EditEpisodeForm onSubmit={this.onSubmit}/>}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
 }
 
+
 const mapStateToProps = (state) => {
-  console.log('state', state);
   const {episodeDataState: {episode, editEpisode}} = state;
+  // for real api change to {episode: episode.episode}
   return {
     episode: episode.episode,
     editEpisode
@@ -61,7 +67,6 @@ const mapStateToProps = (state) => {
 };
 
 function mapDispatchToProps(dispatch) {
-  // console.log(dispatch);
   return {
     episodeActions: bindActionCreators(episodeActions, dispatch),
   };

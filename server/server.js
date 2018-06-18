@@ -4,10 +4,9 @@ import express from 'express';
 import config from './config';
 import bodyParser from 'body-parser';
 import logger from 'morgan';
-import requestIp from 'request-ip';
 import apiRouteConfig from './configurations/apiRoutesConfig';
 import staticResourcesConfig from './configurations/staticResourcesConfig';
-
+import responseHeaderConfig from './configurations/responseHeaderConfig';
 
 const app = express();
 
@@ -22,7 +21,7 @@ app.use(bodyParser.json());
 
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS, PATCH');
   next();
 });
 
