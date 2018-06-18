@@ -9,10 +9,10 @@ const responseHeaderConfig = (app) => {
     directives: {
       defaultSrc: ["'self'"],
       scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
-      styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://api.breaker.audio/shows/185226/episodes/29314799"],
+      styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
       imgSrc: ["'self'", "data:"],
       fontSrc: ["'self'", "https://fonts.gstatic.com", "data:"],
-      connectSrc: ["'self'", "http://localhost:3007", "https://api.breaker.audio/shows/185226/episodes/29314799"],
+      connectSrc: ["'self'", "http://localhost:3007"],
       // reportUri: "/cspviolation"
     },
   }));

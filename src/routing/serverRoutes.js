@@ -1,7 +1,7 @@
 import Base from '../components/Base.js';
 import AboutPage from '../components/AboutPage';
 import NotFoundPage from '../components/NotFoundPage';
-import EpisodeContainer           from '../components/episode/episodeContainer';
+import EpisodeContainer from '../components/episode/episodeContainer';
 
 const routes = [
   {

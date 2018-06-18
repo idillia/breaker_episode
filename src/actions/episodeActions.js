@@ -4,9 +4,6 @@ import * as types from './actionTypes';
 import episodeApi from '../api-services/episodeApi';
 import mockApi from '../api-services/mockApi';
 
-// console.log(mockApi.getMockEpisode())
-
-
 function episodeDataRequested(){
   return {
     type: types.EPISODE_REQUEST,
@@ -63,10 +60,7 @@ export function fetchOneEpisode() {
     dispatch(episodeDataRequested());
     try {
       const episode = await episodeApi.getOneEpisode();
-      console.log('got an episode');
-      // console.log('about to get mock episode');
       // const episode = await mockApi.getMockEpisode();
-      // console.log("ep", episode)
       dispatch(episodeDataReceived(episode));
     } catch (error) {
       dispatch(episodeRequestFailure(error));
@@ -80,12 +74,11 @@ export function updateEpisode(episode) {
     dispatch(episodeUpdateRequested());
     return episodeApi.updateOneEpisode(episode)
       .then((episode) => {
-        console.log('successfull update');
         dispatch(episodeUpdateSuccessful());
         dispatch(episodeUpdate(episode));
       })
       .catch((error) => {
-        console.log('error while updating', error);
+        console.log('Error during update. ', error);
         dispatch(episodeUpdateFailure(error));
       });
   };

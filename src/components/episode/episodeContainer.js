@@ -7,7 +7,6 @@ import AudioPlayer             from '../audioPlayer/audioPlayerComponent';
 import EditEpisodeForm                  from './editEpisodeComponent';
 import {connect}                        from 'react-redux';
 import * as episodeActions                 from '../../actions/episodeActions';
-import moment from 'moment';
 
 class EpisodeContainer extends Component {
   constructor(props) {
@@ -33,8 +32,6 @@ class EpisodeContainer extends Component {
 
   render() {
     const {episode, editEpisode} = this.props;
-    let dateFormated = moment(episode.published_at).format('MMMM Do YYYY, h:mm:ss a'); 
-    // console.log(this.props);
     return (
       <div className='container'>
         <div className="row">
@@ -59,7 +56,6 @@ class EpisodeContainer extends Component {
 
 const mapStateToProps = (state) => {
   const {episodeDataState: {episode, editEpisode}} = state;
-  // for real api change to {episode: episode.episode}
   return {
     episode: episode.episode,
     editEpisode

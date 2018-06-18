@@ -27,7 +27,6 @@ wildCardRouter.route('*')
     });
 
     return Promise.all(promises).then((data) => {
-      // console.log("data", data)
       store.dispatch(push(req.originalUrl)); 
       let context = {};
       const content = renderToString(
