@@ -1,3 +1,4 @@
+
 body {
     background: linear-gradient(to left, #FEE7D5, #fefaf6);
     /*text-align:center;*/
@@ -6,10 +7,19 @@ body {
 }
 .card {
   width:100%;
+  background: antiquewhite;
 }
 
 .card-img-top {
-  width:20%;
+  width: 150px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+}
+
+.progress {
+  margin: 0;
 }
 
 .rounded {
@@ -93,7 +103,7 @@ body {
   overflow: hidden;
   padding: 16px 6px 0;
   text-align: center;
-  width: 10%;
+  width: 20%;
 }
 
 .mejs__time-rail {
@@ -201,10 +211,10 @@ a {
   -webkit-transform: scale(.9375);
           transform: scale(.9375);
 }
-.sb-soundplayer-btn:active {
+/*.sb-soundplayer-btn:active {
   -webkit-box-shadow: inset 0 0 0 2px #FC561E;
           box-shadow: inset 0 0 0 2px #FC561E;
-}
+}*/
 .sb-soundplayer-btn:hover,
 .sb-soundplayer-btn:focus {
   -webkit-box-shadow: none;
@@ -276,7 +286,7 @@ a {
 /*progress*/
 
 .sb-soundplayer-progress-container {
-  background-color: #DDD;
+  background-color: #495057;
   width: 50%;
   height: 10px;
   overflow: hidden;
@@ -371,4 +381,31 @@ a {
 /* progress fill */
 .sb-soundplayer-volume-range::-ms-fill-lower {
   background: #FC561E;
+}
+
+/*Customed colored header*/
+
+.navbar-custom {
+    background-color: #e5be97;
+}
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: rgba(255,255,255,.8);
+}
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+    color: #495057;
+}
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+    color: #ffffff;
+}
+
+.custom-toggler.navbar-toggler {
+    border-color: rgb(192, 57, 43);
+}
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(192, 57, 43, 1)' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
