@@ -7,7 +7,7 @@ const RedirectToArticlesPage = () => {
       if (staticContext) {
         staticContext.status = 302;
       }
-      return <Redirect from="/" to="/episodes/29314799" />;
+      return <Redirect from="/" to="/29314799" />;
     }}/>
   );
 };
